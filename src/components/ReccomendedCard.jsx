@@ -1,7 +1,4 @@
-export default function Card(){
-
-
-
+export default function ReccomendedCard({ title }) {
 
     return(
     <div className="bg-[#10141E]">
@@ -39,3 +36,5 @@ export default function Card(){
     
     
     }
+
+          
