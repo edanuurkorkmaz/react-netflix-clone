@@ -9,3 +9,13 @@ body {
     font-family: Outfit, sans serif;
 }
 
+*{
+    scrollbar-width: thin;
+    
+}
+
+.sb-none{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
