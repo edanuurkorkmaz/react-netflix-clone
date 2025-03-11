@@ -1,5 +1,6 @@
 import { FileWarning, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import ReccomendedCard from "./ReccomendedCard";
 
 export default function RecommendForYou() {
     const [movies, setMovies] = useState([]);
@@ -47,13 +48,12 @@ export default function RecommendForYou() {
             </div>
         );
     }
+    console.log("çalıştı");
 
     return (
         <div>
             {movies.map((movie) => (
-                <div>
-                    <h1> {movie.title} </h1>
-                </div>
+                <ReccomendedCard title={movie.title} />
             ))}
         </div>
     );
