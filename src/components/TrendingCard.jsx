@@ -24,7 +24,7 @@ export default function TrendingCard() {
                     </h3>
                 </div>
 
-                <button className="absolute top-3 right-3 bg-black/50 p-2 rounded-full hover:cursor-pointer">
+                <button className="absolute top-3 right-3 hover:cursor-pointer">
                     <img className="w-5 h-5" src="" alt="Bookmark" />
                 </button>
             </div>

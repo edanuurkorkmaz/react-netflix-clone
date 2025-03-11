@@ -1,50 +1,58 @@
-import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { FileWarning, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import RecommendForYou from "./RecommendForYou";
 
-
-
-export default function HomePage(){
-    const [movies, setMovies]= useState([]);
-    const [error, setError] = useState(null);
+export default function HomePage() {
+    const [movies, setMovies] = useState([]);
+    const [err, setErr] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(()=> {
-    
-        const getMovies = async ()=> {
-            console.log("istek atıldı");
-            
-            try{
-                const response = await fetch("https://clonejson.vercel.app/api/movies");
+    useEffect(() => {
+        const getMovies = async () => {
+            try {
+                const res = await fetch(
+                    "https://clonejson.vercel.app/api/movies"
+                );
                 setIsLoading(false);
-                if(!response.ok){
+                if (!res.ok) {
                     setMovies([]);
-                    setError("veriler getirilirken bir hata oluştu")
-                    console.log(response.status);
-
-                    if(response.status === 429){
-                        setError("Çok fazla istek yolladınız")
-                    }
+                    setErr("Veriler getirilirken bir hata oluştu!");
                     return;
-                    
                 }
-                const data = await response.json();
+                const data = await res.json();
                 setMovies(data);
-            }catch(e){
+            } catch (err) {
                 setMovies([]);
                 setIsLoading(false);
-                setError("Veriler getirilirken bir hata oluştu");
+                setErr("Veriler getirilirken bir hata oluştu!");
             }
-        }
+        };
         getMovies();
-    },[]);
+    }, []);
 
+    if (isLoading) {
+        return (
+            <div className="flex flex-col min-h-screen items-center justify-center">
+                <Loader2 className="w-4 h-4 animate-spin" />
+            </div>
+        );
+    }
 
-   
+    if (err) {
+        return (
+            <div className="bg-red-500 rounded-lg py-2 px-2 mx-5 text-xs">
+                <div className="flex items-center text-white gap-2">
+                    <FileWarning className="w-4 h-4" />
+                    <span> {err} </span>
+                </div>
+            </div>
+        );
+    }
+    console.log("çalıştı");
+
+    return (
+        <div>
+            <RecommendForYou movies={movies} />
+        </div>
+    );
 }
-
-
-
-
-
-
