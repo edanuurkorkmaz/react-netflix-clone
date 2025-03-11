@@ -50,11 +50,4 @@ export default function RecommendForYou() {
     }
     console.log("çalıştı");
 
-    return (
-        <div>
-            {movies.map((movie) => (
-                <ReccomendedCard title={movie.title} />
-            ))}
-        </div>
-    );
 }

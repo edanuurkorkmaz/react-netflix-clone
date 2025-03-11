@@ -27,7 +27,7 @@ export default function ReccomendedCard({ title }) {
                 <span>•</span> 
                 <p>E</p>
             </div>
-            <h5 className="text-white">The Great Lands</h5>
+            <h5 className="text-white">{title}</h5>
         </div>
         
     </div>
