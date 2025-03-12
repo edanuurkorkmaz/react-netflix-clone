@@ -1,6 +1,7 @@
 import { FileWarning, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import RecommendForYou from "./RecommendForYou";
+import Trending from "./Trending";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
@@ -51,8 +52,13 @@ export default function HomePage() {
     console.log("çalıştı");
 
     return (
-        <div>
-            <RecommendForYou movies={movies} />
-        </div>
+        <>
+            <div className="relative w-72 rounded-lg overflow-hidden">
+                <Trending movies={movies} />
+            </div>
+            <div>
+                <RecommendForYou movies={movies} />
+            </div>
+        </>
     );
 }

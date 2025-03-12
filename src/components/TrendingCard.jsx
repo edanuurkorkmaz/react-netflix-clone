@@ -1,10 +1,12 @@
-export default function TrendingCard({title , image ,type, ageRating, releaseDate}) {
-    console.log(image);
-    
+export default function TrendingCard({
+    title,
+    image,
+    type,
+    ageRating,
+    releaseDate,
+}) {
     return (
-        
         <div className=" p-6 ">
-            
             <div className="relative w-72 rounded-lg overflow-hidden">
                 <img
                     className="w-full h-48 object-cover"
@@ -16,7 +18,11 @@ export default function TrendingCard({title , image ,type, ageRating, releaseDat
                     <div className="flex items-center gap-2 text-gray-300 text-sm">
                         <span>{releaseDate}</span>
                         <span>•</span>
-                        <img className="w-4 h-4" src="./movie.svg" alt="Movie Icon" />
+                        <img
+                            className="w-4 h-4"
+                            src="./movie.svg"
+                            alt="Movie Icon"
+                        />
                         <span>{type}</span>
                         <span>•</span>
                         <span>{ageRating}</span>
@@ -27,7 +33,6 @@ export default function TrendingCard({title , image ,type, ageRating, releaseDat
                     </h3>
                 </div>
 
-              
             </div>
         </div>
     );
