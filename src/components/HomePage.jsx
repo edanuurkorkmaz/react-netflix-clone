@@ -53,7 +53,7 @@ export default function HomePage() {
 
     return (
         <>
-            <div className="relative w-full rounded-lg overflow-hidden">
+            <div className="relative w-72 rounded-lg overflow-hidden">
                 <Trending movies={movies} />
             </div>
             <div>
