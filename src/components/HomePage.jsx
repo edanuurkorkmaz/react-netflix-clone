@@ -2,8 +2,9 @@ import { FileWarning, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import RecommendForYou from "./RecommendForYou";
 import Trending from "./Trending";
+import Navbar from "./navbar";
 
-export default function HomePage() {
+export default function HomePage({setPage}) {
     const [movies, setMovies] = useState([]);
     const [err, setErr] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +54,8 @@ export default function HomePage() {
 
     return (
         <>
-            <div className="relative w-72 rounded-lg overflow-hidden">
+        
+            <div className="relative w-full rounded-lg overflow-hidden">
                 <Trending movies={movies} />
             </div>
             <div>
