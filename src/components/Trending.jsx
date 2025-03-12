@@ -64,7 +64,7 @@ export default function Trending(){
     
     return (
     <div>
-        <h1 className="text-white">Trending</h1>
+        <h1 className="text-gray-50">Trending</h1>
         <div className="overflow-hidden w-full">
             <div className="flex overflow-x-auto sb-none">
                 {filteredMovies.length > 0 ? (
