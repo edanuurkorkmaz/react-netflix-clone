@@ -1,31 +1,32 @@
-export default function TrendingCard() {
+export default function TrendingCard({title , image ,type, ageRating, releaseDate}) {
+    console.log(image);
+    
     return (
-        <div className="bg-[#10141E] p-6">
-            <h2 className="text-3xl text-white mb-4">Trending</h2>
+        
+        <div className=" p-6 ">
+            
             <div className="relative w-72 rounded-lg overflow-hidden">
                 <img
                     className="w-full h-48 object-cover"
-                    src=""
+                    src={image}
                     alt="Beyond Earth"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
                     <div className="flex items-center gap-2 text-gray-300 text-sm">
-                        <span>2019</span>
+                        <span>{releaseDate}</span>
                         <span>•</span>
-                        <img className="w-4 h-4" src="" alt="Movie Icon" />
-                        <span>Movie</span>
+                        <img className="w-4 h-4" src="./movie.svg" alt="Movie Icon" />
+                        <span>{type}</span>
                         <span>•</span>
-                        <span>PG</span>
+                        <span>{ageRating}</span>
                     </div>
 
                     <h3 className="text-white text-lg font-semibold">
-                        Beyond Earth
+                        {title}
                     </h3>
                 </div>
 
-                <button className="absolute top-3 right-3 hover:cursor-pointer">
-                    <img className="w-5 h-5" src="" alt="Bookmark" />
                 </button>
             </div>
         </div>

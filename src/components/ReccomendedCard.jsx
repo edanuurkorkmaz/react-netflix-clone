@@ -35,6 +35,8 @@ export default function ReccomendedCard({ title, image, type, ageRating }) {
                     {title}
                 </h5>
             </div>
+
+
         </div>
     );
 }
