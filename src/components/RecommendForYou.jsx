@@ -1,6 +1,5 @@
 import ReccomendedCard from "./ReccomendedCard";
 
-
 export default function RecommendForYou({ movies }) {
     return (
         <div className="bg-[#10141E] p-4">
@@ -20,4 +19,3 @@ export default function RecommendForYou({ movies }) {
         </div>
     );
 
-}
