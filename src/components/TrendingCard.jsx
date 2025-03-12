@@ -27,7 +27,7 @@ export default function TrendingCard({title , image ,type, ageRating, releaseDat
                     </h3>
                 </div>
 
-                </button>
+              
             </div>
         </div>
     );
