@@ -12,6 +12,7 @@ export default function Trending({ movies }) {
     }, [movies]);
 
     return (
+
         <div>
             <h1 className="text-white">Trending</h1>
             <div className=" w-full">
@@ -28,6 +29,7 @@ export default function Trending({ movies }) {
                           ))
                         : null}
                 </div>
+
             </div>
         </div>
     );

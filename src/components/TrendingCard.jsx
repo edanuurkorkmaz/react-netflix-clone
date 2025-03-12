@@ -32,6 +32,7 @@ export default function TrendingCard({
                         {title}
                     </h3>
                 </div>
+
             </div>
         </div>
     );
