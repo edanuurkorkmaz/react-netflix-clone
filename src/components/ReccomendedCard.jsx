@@ -1,6 +1,6 @@
 export default function ReccomendedCard({ title, image, type, ageRating }) {
     return (
-        <div className="bg-[#10141E] p-3 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto ">
+        <div className="bg-[#10141E] p-2 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto ">
             <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] rounded-lg overflow-hidden shadow-md ">
                 <img
                     src={image}
