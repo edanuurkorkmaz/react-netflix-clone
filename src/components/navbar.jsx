@@ -10,6 +10,7 @@ export default function Navbar(){
                  <a href=""> <img src="./homepage-icon.svg" alt="" /></a>
                  <a href=""> <img src="./movie-icon.svg" alt="" /></a>
                  <a href=""> <img src="./series-icon.svg" alt="" /></a>
+                  <a href=""> <img src="./series-icon.svg" alt="" /></a>
             
                 
             </div>
