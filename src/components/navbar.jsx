@@ -8,35 +8,26 @@ export default function Navbar({ setPage }) {
             </a>
 
             <div className="flex gap-[24px]">
-                <button
-                    onClick={() => navigate("/homepage", setPage)}
-                    className="cursor-pointer"
-                >
-                    <img src="./homepage-icon.svg" alt="" />
-                </button>
-                <button
-                    onClick={() => navigate("/movies", setPage)}
-                    className="cursor-pointer"
-                >
-                    <img src="./movie-icon.svg" alt="" />
-                </button>
-                <button
-                    onClick={() => navigate("/series", setPage)}
-                    className="cursor-pointer"
-                >
-                    <img src="./series-icon.svg" alt="" />
-                </button>
-                <button
-                    onClick={() => navigate("/bookmark", setPage)}
-                    className="cursor-pointer"
-                >
-                    <img src="./bookmark-icon.svg" alt="" />
-                </button>
-            </div>
+                <a href="/homepage" className="cursor-pointer" onClick={() => navigate('/homepage', setPage)}>
+                <img src="./homepage-icon.svg" alt="Homepage" />
+                </a>
+            
+                <a href="/movies" className="cursor-pointer" onClick={() => navigate('/movies', setPage)}>
+                <img src="./movie-icon.svg" alt="Movies" />
+                </a>
+                <a href="/series" className="cursor-pointer" onClick={() => navigate('/series', setPage)}>
+                <img src="./series-icon.svg" alt="Series" />
+                </a>
+                <a href="/bookmark" className="cursor-pointer" onClick={() => navigate('/bookmark', setPage)}>
+                <img src="./bookmark-icon.svg" alt="Bookmark" />
+                </a>
+                </div>
 
-            <a href="">
+
+                <a href="">
                 <img src="./men-icon.svg" alt="" />
-            </a>
+                </a>
+               
         </div>
     );
 }

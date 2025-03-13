@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/navbar";
 import MoviesPage from "./components/MoviesPage";
+import SeriesPage from "./SeriesPage";
 
 export default function App() {
     const [page, setPage] = useState(window.location.pathname);
@@ -19,7 +20,7 @@ export default function App() {
                 {page === "/" && <HomePage />}
                 {page === "/homepage" && <HomePage />}
                 {page === "/movies" && <MoviesPage />}
-                {page === "/series" && <Series />}
+                {page === "/series" && <SeriesPage />}
                 {page === "/bookmark" && <BookMark />}
             </div>
         </>
