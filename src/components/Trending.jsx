@@ -12,14 +12,16 @@ export default function Trending({ movies }) {
     }, [movies]);
 
     return (
-
         <div>
-            <h1 className="text-white text-2xl sm:text-3xl ml-[16px] mt-[16px] ">Trending</h1>
+            <h1 className="text-white text-2xl sm:text-3xl ml-[16px] mt-[16px] ">
+                Trending
+            </h1>
             <div className=" w-full">
                 <div className="flex overflow-x-auto sb-none">
                     {filteredMovies.length > 0
                         ? filteredMovies.map((movie) => (
                               <TrendingCard
+                                  key={movie.title}
                                   title={movie.title}
                                   type={movie.type}
                                   releaseDate={movie.release_date}
@@ -29,7 +31,6 @@ export default function Trending({ movies }) {
                           ))
                         : null}
                 </div>
-
             </div>
         </div>
     );

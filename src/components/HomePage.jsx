@@ -1,12 +1,15 @@
 import { FileWarning, Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import RecommendForYou from "./RecommendForYou";
 import Trending from "./Trending";
+import Search from "./Search";
+import ReccomendedCard from "./ReccomendedCard";
 
 export default function HomePage({ setPage }) {
     const [movies, setMovies] = useState([]);
     const [err, setErr] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [filteredMovies, setFilteredMovies] = useState([]);
 
     useEffect(() => {
         const getMovies = async () => {
@@ -22,8 +25,10 @@ export default function HomePage({ setPage }) {
                 }
                 const data = await res.json();
                 setMovies(data);
+                setFilteredMovies(data);
             } catch (err) {
                 setMovies([]);
+                setFilteredMovies([]);
                 setIsLoading(false);
                 setErr("Veriler getirilirken bir hata oluştu!");
             }
@@ -49,15 +54,39 @@ export default function HomePage({ setPage }) {
             </div>
         );
     }
-    console.log("çalıştı");
+
+    const isInitialMovies = filteredMovies.length === movies.length;
 
     return (
         <>
-            <div className="relative w-full rounded-lg overflow-hidden">
-                <Trending movies={movies} />
-            </div>
-            <div>
-                <RecommendForYou movies={movies} />
+            <div className="flex flex-col items-center w-full bg-[#10141E] min-h-screen">
+                <Search movies={movies} setFilteredMovies={setFilteredMovies} />
+
+                {isInitialMovies && movies.length > 0 ? (
+                    <div className="w-full">
+                        <div className="relative w-full rounded-lg overflow-hidden">
+                            <Trending movies={movies} />
+                        </div>
+                        <div className="mt-4">
+                            <RecommendForYou movies={movies} />
+                        </div>
+                    </div>
+                ) : null}
+
+                {filteredMovies.length > 0 && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+                        {filteredMovies.map((movie) => (
+                            <ReccomendedCard
+                                key={movie.title}
+                                title={movie.title}
+                                image={movie.image}
+                                type={movie.type}
+                                ageRating={movie.age_rating}
+                                releaseDate={movie.release_date}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </>
     );

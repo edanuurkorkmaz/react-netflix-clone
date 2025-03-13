@@ -9,10 +9,12 @@ export default function RecommendForYou({ movies }) {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {movies.map((movie) => (
                     <ReccomendedCard
+                        key={movie.title}
                         title={movie.title}
                         image={movie.image}
                         type={movie.type}
                         ageRating={movie.age_rating}
+                        releaseDate={movie.release_date}
                     />
                 ))}
             </div>

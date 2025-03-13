@@ -20,10 +20,14 @@ export default function TrendingCard({
                         <span>•</span>
                         <img
                             className="w-4 h-4"
-                            src="./movie.svg"
+                            src={
+                                type === "movie"
+                                    ? "./movie.svg"
+                                    : "./series.svg"
+                            }
                             alt="Movie Icon"
                         />
-                        <span>{type}</span>
+                        <span> {type === "movie" ? "Movie" : "Series"} </span>
                         <span>•</span>
                         <span>{ageRating}</span>
                     </div>
@@ -32,7 +36,6 @@ export default function TrendingCard({
                         {title}
                     </h3>
                 </div>
-
             </div>
         </div>
     );
