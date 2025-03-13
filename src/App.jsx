@@ -3,6 +3,7 @@ import HomePage from "./components/HomePage";
 import Navbar from "./components/navbar";
 import MoviesPage from "./components/MoviesPage";
 import SeriesPage from "./SeriesPage";
+import BookMark from "./components/BookMark";
 
 export default function App() {
     const [page, setPage] = useState(window.location.pathname);

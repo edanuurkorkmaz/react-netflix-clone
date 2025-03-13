@@ -6,7 +6,9 @@ export default function TrendingCard({
     releaseDate,
 }) {
     return (
-        <div className=" p-6 ">
+        <div 
+            
+             className=" p-6 ">
             <div className="relative w-72 rounded-lg overflow-hidden">
                 <img
                     className="w-full h-48 object-cover"

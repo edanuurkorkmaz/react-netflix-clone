@@ -21,12 +21,13 @@ export default function Navbar({ setPage }) {
                 <a href="/bookmark" className="cursor-pointer" onClick={() => navigate('/bookmark', setPage)}>
                 <img src="./bookmark-icon.svg" alt="Bookmark" />
                 </a>
-                </div>
+            </div>
 
 
                 <a href="">
                 <img src="./men-icon.svg" alt="" />
                 </a>
+                
                
         </div>
     );
