@@ -1,4 +1,10 @@
-export default function ReccomendedCard({ title, image, type, ageRating }) {
+export default function ReccomendedCard({
+    title,
+    image,
+    type,
+    ageRating,
+    releaseDate,
+}) {
     return (
         <div className="bg-[#10141E] p-2 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto ">
             <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] rounded-lg overflow-hidden shadow-md ">
@@ -14,9 +20,9 @@ export default function ReccomendedCard({ title, image, type, ageRating }) {
 
             <div className="mt-2 text-gray-300 text-xs sm:text-sm">
                 <div className=" flex flex-row items-center gap-[14px] text-sm ">
-                    <span>2019</span>
+                    <span>{releaseDate} </span>
                     <span>•</span>
-                    <div className="flex items-center gap-[2px]">
+                    <div className="flex items-center gap-[8px]">
                         <img
                             className="w-3 h-3"
                             src={
@@ -35,8 +41,6 @@ export default function ReccomendedCard({ title, image, type, ageRating }) {
                     {title}
                 </h5>
             </div>
-
-
         </div>
     );
 }
