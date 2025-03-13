@@ -1,13 +1,15 @@
-import { FileWarning, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import RecommendForYou from "./RecommendForYou";
-import Trending from "./Trending";
-import Navbar from "./navbar";
+import ReccomendedCard from "./ReccomendedCard"; 
+import { FileWarning } from "lucide-react";
 
-export default function HomePage({setPage}) {
-    const [movies, setMovies] = useState([]);
-    const [err, setErr] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+ 
+ 
+ export default function MoviesPage(setPage){
+     const [isMovieType, setIsMovieType] = useState([]);
+     const [movies, setMovies] = useState([]);
+     const [err, setErr] = useState(null);
+     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const getMovies = async () => {
@@ -32,6 +34,13 @@ export default function HomePage({setPage}) {
         getMovies();
     }, []);
 
+     useEffect(() => {
+        const movieType = movies.filter(
+            (movie) => movie.type === "movie"
+        );
+        setIsMovieType(movieType);
+    },[movies]);
+
     if (isLoading) {
         return (
             <div className="flex flex-col min-h-screen items-center justify-center">
@@ -52,15 +61,26 @@ export default function HomePage({setPage}) {
     }
     console.log("çalıştı");
 
-    return (
-        <>
-        
-            <div className="relative w-full rounded-lg overflow-hidden">
-                <Trending movies={movies} />
+   
+
+    return( 
+        <div className="bg-[#10141E] p-4">
+              <h2 className="text-2xl sm:text-3xl text-white mb-4">
+                Movies
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4"> 
+                {isMovieType.length > 0 ? isMovieType.map((movie)=>(
+                    <ReccomendedCard
+                         title={movie.title}
+                         type={movie.type}
+                         releaseDate={movie.release_date}
+                         image={movie.image}
+                         ageRating={movie.age_rating}
+                    />
+                ))
+                        :null}
             </div>
-            <div>
-                <RecommendForYou movies={movies} />
-            </div>
-        </>
+        </div>
+       
     );
-}
+ }
