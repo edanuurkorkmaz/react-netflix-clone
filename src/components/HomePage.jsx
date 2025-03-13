@@ -58,36 +58,40 @@ export default function HomePage({ setPage }) {
     const isInitialMovies = filteredMovies.length === movies.length;
 
     return (
-        <>
-            <div className="flex flex-col items-center w-full bg-[#10141E] min-h-screen">
-                <Search movies={movies} setFilteredMovies={setFilteredMovies} />
+        <div className="flex flex-col items-center w-full bg-[#10141E] min-h-screen">
+            <Search movies={movies} setFilteredMovies={setFilteredMovies} />
 
-                {isInitialMovies && movies.length > 0 ? (
-                    <div className="w-full">
-                        <div className="relative w-full rounded-lg overflow-hidden">
-                            <Trending movies={movies} />
-                        </div>
-                        <div className="mt-4">
-                            <RecommendForYou movies={movies} />
-                        </div>
+            {isInitialMovies && movies.length > 0 ? (
+                <div className="w-full">
+                    <div className="relative w-full rounded-lg overflow-hidden">
+                        <Trending movies={movies} />
                     </div>
-                ) : null}
+                    <div className="mt-4">
+                        <RecommendForYou movies={movies} />
+                    </div>
+                </div>
+            ) : null}
 
-                {filteredMovies.length > 0 && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-                        {filteredMovies.map((movie) => (
-                            <ReccomendedCard
-                                key={movie.title}
-                                title={movie.title}
-                                image={movie.image}
-                                type={movie.type}
-                                ageRating={movie.age_rating}
-                                releaseDate={movie.release_date}
-                            />
-                        ))}
-                    </div>
-                )}
-            </div>
-        </>
+            {!isInitialMovies && filteredMovies.length > 0 && (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+                    {filteredMovies.map((movie) => (
+                        <ReccomendedCard
+                            key={movie.title}
+                            title={movie.title}
+                            image={movie.image}
+                            type={movie.type}
+                            ageRating={movie.age_rating}
+                            releaseDate={movie.release_date}
+                        />
+                    ))}
+                </div>
+            )}
+
+            {!isInitialMovies && filteredMovies.length === 0 && (
+                <p className="text-white text-center mt-4">
+                    Aramanıza uygun film bulunamadı.
+                </p>
+            )}
+        </div>
     );
 }
