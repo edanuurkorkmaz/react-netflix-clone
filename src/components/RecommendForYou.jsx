@@ -2,7 +2,7 @@ import ReccomendedCard from "./ReccomendedCard";
 
 export default function RecommendForYou({ movies }) {
     return (
-        <div className="bg-[#10141E] p-4">
+        <div className="bg-[#10141E] p-4  md:pl-[90px]">
             <h2 className="text-2xl sm:text-3xl text-white mb-4">
                 Recommended For You
             </h2>

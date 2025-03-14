@@ -12,7 +12,7 @@ export default function Trending({ movies }) {
     }, [movies]);
 
     return (
-        <div>
+        <div className=" md:pl-[90px]">
             <h1 className="text-white text-2xl sm:text-3xl ml-[16px] mt-[16px] ">
                 Trending
             </h1>

@@ -44,7 +44,7 @@ export default function Search({ movies, setFilteredMovies }) {
     };
 
     return (
-        <div className="flex  gap-4 text-white p-5 w-full items-center ">
+        <div className="flex  gap-4 text-white p-5 w-full items-center  md:pl-[90px] ">
             <LucideSearch className="w-5 h-5" />
             <input
                 name="title"
