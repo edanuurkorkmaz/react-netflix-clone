@@ -1,13 +1,20 @@
-
 import { useState, useEffect } from "react";
 
-export default function ReccomendedCard({ title, image, type, ageRating, onToggle,releaseDate }) {
+export default function ReccomendedCard({
+    title,
+    image,
+    type,
+    ageRating,
+    onToggle,
+    releaseDate,
+}) {
     const [isBookmarked, setIsBookmarked] = useState(false);
 
     useEffect(() => {
         const checkBookmarkedStatus = () => {
-            const savedItems = JSON.parse(localStorage.getItem("bookmarkedItems")) || [];
-            const bookmarked = savedItems.some(item => item.title === title);
+            const savedItems =
+                JSON.parse(localStorage.getItem("bookmarkedItems")) || [];
+            const bookmarked = savedItems.some((item) => item.title === title);
             setIsBookmarked(bookmarked);
         };
 
@@ -15,11 +22,12 @@ export default function ReccomendedCard({ title, image, type, ageRating, onToggl
     }, [title]);
 
     const handleToggleBookmark = () => {
-        const savedItems = JSON.parse(localStorage.getItem("bookmarkedItems")) || [];
+        const savedItems =
+            JSON.parse(localStorage.getItem("bookmarkedItems")) || [];
         let updatedItems;
-        
+
         if (isBookmarked) {
-            updatedItems = savedItems.filter(item => item.title !== title);
+            updatedItems = savedItems.filter((item) => item.title !== title);
         } else {
             updatedItems = [...savedItems, { title, image, type, ageRating }];
         }
@@ -32,14 +40,13 @@ export default function ReccomendedCard({ title, image, type, ageRating, onToggl
         }
     };
 
-
     return (
-        <div className="bg-[#10141E] p-2 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto ">
-            <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] rounded-lg overflow-hidden shadow-md ">
+        <div className="bg-[#10141E] p-2 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-[#1C2533]">
+            <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl ">
                 <img
                     src={image}
                     alt="Scenic view"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <button
                     className="absolute top-2 right-2 p-1 hover:bg-black/70 hover:rounded-lg hover:cursor-pointer transition"
@@ -52,8 +59,7 @@ export default function ReccomendedCard({ title, image, type, ageRating, onToggl
                     />
                 </button>
             </div>
-            <div className="mt-2 text-gray-300 text-xs sm:text-sm">
-
+            <div className="mt-2 text-gray-300 text-xs sm:text-sm transition-colors duration-300 hover:text-white">
                 <div className=" flex flex-row items-center gap-[14px] text-sm ">
                     <span>{releaseDate} </span>
 
@@ -61,7 +67,9 @@ export default function ReccomendedCard({ title, image, type, ageRating, onToggl
                     <div className="flex items-center gap-[8px]">
                         <img
                             className="w-3 h-3"
-                            src={type === "movie" ? "./movie.svg" : "./series.svg"}
+                            src={
+                                type === "movie" ? "/movie.svg" : "/series.svg"
+                            }
                             alt=""
                         />
                         <span>{type === "movie" ? "Movie" : "Series"}</span>
@@ -73,7 +81,7 @@ export default function ReccomendedCard({ title, image, type, ageRating, onToggl
                     {title}
                 </h5>
             </div>
-
-        </div>
-    );
+             
+        </div>
+    );
 }

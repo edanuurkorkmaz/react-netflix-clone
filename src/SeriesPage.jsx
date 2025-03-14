@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 import { FileWarning } from "lucide-react";
 import ReccomendedCard from "./components/ReccomendedCard";
 
- 
- 
- export default function SeriesPage(setPage){
-     const [isSerieType, setIsSerieType] = useState([]);
-     const [series, setSeries] = useState([]);
-     const [err, setErr] = useState(null);
-     const [isLoading, setIsLoading] = useState(true);
+export default function SeriesPage(setPage) {
+    const [isSerieType, setIsSerieType] = useState([]);
+    const [series, setSeries] = useState([]);
+    const [err, setErr] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const getMovies = async () => {
@@ -35,12 +33,10 @@ import ReccomendedCard from "./components/ReccomendedCard";
         getMovies();
     }, []);
 
-     useEffect(() => {
-        const serieType = series.filter(
-            (movie) => movie.type === "series"
-        );
+    useEffect(() => {
+        const serieType = series.filter((movie) => movie.type === "series");
         setIsSerieType(serieType);
-    },[series]);
+    }, [series]);
 
     if (isLoading) {
         return (
@@ -62,26 +58,22 @@ import ReccomendedCard from "./components/ReccomendedCard";
     }
     console.log("çalıştı");
 
-   
-
-    return( 
-        <div className="bg-[#10141E] p-4">
-              <h2 className="text-2xl sm:text-3xl text-white mb-4">
-                Series
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4"> 
-                {isSerieType.length > 0 ? isSerieType.map((movie)=>(
-                    <ReccomendedCard
-                         title={movie.title}
-                         type={movie.type}
-                         releaseDate={movie.release_date}
-                         image={movie.image}
-                         ageRating={movie.age_rating}
-                    />
-                ))
-                        :null}
+    return (
+        <div className="bg-[#10141E] p-4 md:pl-[90px]">
+            <h2 className="text-2xl sm:text-3xl text-white mb-4">Series</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {isSerieType.length > 0
+                    ? isSerieType.map((movie) => (
+                          <ReccomendedCard
+                              title={movie.title}
+                              type={movie.type}
+                              releaseDate={movie.release_date}
+                              image={movie.image}
+                              ageRating={movie.age_rating}
+                          />
+                      ))
+                    : null}
             </div>
         </div>
-       
     );
- }
+}

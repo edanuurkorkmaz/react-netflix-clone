@@ -5,7 +5,7 @@ import Trending from "./Trending";
 import Search from "./Search";
 import ReccomendedCard from "./ReccomendedCard";
 
-export default function HomePage({ setPage }) {
+export default function HomePage() {
     const [movies, setMovies] = useState([]);
     const [err, setErr] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -89,7 +89,7 @@ export default function HomePage({ setPage }) {
 
             {!isInitialMovies && filteredMovies.length === 0 && (
                 <p className="text-white text-center mt-4">
-                    Aramanıza uygun film bulunamadı.
+                    Aramanıza uygun film veya dizi bulunamadı.
                 </p>
             )}
         </div>
