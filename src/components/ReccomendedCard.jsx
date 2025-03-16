@@ -7,6 +7,7 @@ export default function ReccomendedCard({
     ageRating,
     onToggle,
     releaseDate,
+    trailer
 }) {
     const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -43,11 +44,14 @@ export default function ReccomendedCard({
     return (
         <div className="bg-[#10141E] p-2 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-[#1C2533]">
             <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl ">
-                <img
-                    src={image}
-                    alt="Scenic view"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                />
+              <a
+  href={`https://www.youtube.com/watch?v=${trailer}`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img src={image} alt="Scenic view" className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+</a>
+
                 <button
                     className="absolute top-2 right-2 p-1 hover:bg-black/70 hover:rounded-lg hover:cursor-pointer transition"
                     onClick={handleToggleBookmark}
