@@ -15,6 +15,7 @@ export default function RecommendForYou({ movies }) {
                         type={movie.type}
                         ageRating={movie.age_rating}
                         releaseDate={movie.release_date}
+                        trailer={movie.trailer}
                     />
                 ))}
             </div>

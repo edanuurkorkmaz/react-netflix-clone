@@ -27,6 +27,7 @@ export default function Trending({ movies }) {
                                   releaseDate={movie.release_date}
                                   image={movie.image}
                                   ageRating={movie.age_rating}
+                                  trailer={movie.trailer}
                               />
                           ))
                         : null}
