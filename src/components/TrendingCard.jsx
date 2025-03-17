@@ -11,7 +11,7 @@ export default function TrendingCard({
     return (
         <div className=" p-6 transition-transform duration-300 hover:scale-105 hover:shadow-2xl  ">
             <div className=" hover:cursor-pointer relative w-72 rounded-lg overflow-hidden shadow-lg">
-            <a
+            <a 
                 href={trailer.trim()} 
                 target="_blank"
                 rel="noopener noreferrer"

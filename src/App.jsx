@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/navbar";
 import MoviesPage from "./components/MoviesPage";
-import SeriesPage from "./SeriesPage";
+
 import BookMark from "./components/BookMark";
+import SeriesPage from "./components/SeriesPage";
 
 export default function App() {
     const [page, setPage] = useState(window.location.pathname);
