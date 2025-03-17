@@ -45,7 +45,7 @@ export default function ReccomendedCard({
         <div className="bg-[#10141E] p-2 rounded-lg w-full max-w-[220px] sm:max-w-[250px] md:max-w-[280px] lg:max-w-[300px] mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-[#1C2533]">
             <div className=" relative w-full h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl ">
              <a
-                href={trailer.trim()} 
+                href={trailer} 
                 target="_blank"
                 rel="noopener noreferrer"
             >
