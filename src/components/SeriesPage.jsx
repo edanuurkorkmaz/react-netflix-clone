@@ -2,7 +2,7 @@ import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { FileWarning } from "lucide-react";
-import ReccomendedCard from "./components/ReccomendedCard";
+import ReccomendedCard from "./ReccomendedCard";
 
 export default function SeriesPage(setPage) {
     const [isSerieType, setIsSerieType] = useState([]);
